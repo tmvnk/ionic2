@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+<!--     <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> -->
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <div class="logo">
+      <img src="img/tc_icon.png">
+    </div>
+
+    <form #loginForm="ngForm" novalidate>
+      <ion-item>
+        <ion-label fixed primary>Email:</ion-label>
+        <ion-input [(ngModel)]="login.email" type="text" name="email" #email="ngModel" lowercase required >
+        </ion-input>
+      </ion-item>
+      <p [hidden]="email.valid || submitted == false" danger padding-left>
+        Email is required
+      </p>
+
+      <ion-item>
+        <ion-label fixed primary>Password:</ion-label>
+        <ion-input [(ngModel)]="login.password" type="password" name="password" #password="ngModel" lowercase required>
+        </ion-input>
+      </ion-item>
+      <p [hidden]="password.valid || submitted == false" danger padding-left>
+        Password is required
+      </p>
+
+      <ion-row responsive-sm padding>
+        <ion-col>
+          <button (click)="onLogin(loginForm)" type="submit" primary block>Login</button>
+        </ion-col>
+        <ion-col>
+          <button (click)="onSignup()" light block>Signup</button>
+        </ion-col>
+      </ion-row >
+
+      <div responsive-sm padding-right style="text-align: right;">
+        <button (click)="onForgotPassword()" clear style="font-size:13px;">Forgot my password</button>
+      </div >
+
+
+    </form>
+  </ion-list>
+
+</ion-content>
